@@ -1,9 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:isolate';
 
-import 'package:dart_test_field/thread_pool_data_types.dart';
-
 import 'package:meta/meta.dart';
+import 'package:thread_pool/thread_pool_data_types.dart';
 
 class IsolateSenderAndListener {
   int isolateIndex;

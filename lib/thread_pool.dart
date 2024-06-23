@@ -1,27 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
-import 'dart:io';
-import 'dart:isolate';
 
-import 'package:dart_test_field/isolate_sender_and_listener.dart';
-import 'package:dart_test_field/thread_pool_data_types.dart';
-
-Future<int> getItem(ThreadPool tP, int test) async {
-  dynamic res = await tP.executeFunctionInIsolate(() {
-    return heavyComputation(test);
-  });
-  if (res is! int) {
-    throw Exception("Callback returned unexpected type");
-  }
-  return res;
-}
-
-int heavyComputation(int test) {
-  //print("hi from heavy thread");
-  sleep(Duration(seconds: 3));
-  //print("finished work");
-  return test;
-}
+import 'package:thread_pool/isolate_sender_and_listener.dart';
+import 'package:thread_pool/thread_pool_data_types.dart';
 
 /// This allows you to create a threadpool to call callbacks on isolated threads.
 /// Pass a callback to executeFunctionInIsolate() and the returned value of the callback

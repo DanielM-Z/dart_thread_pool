@@ -1,9 +1,8 @@
 import 'dart:isolate';
 
-import 'package:dart_test_field/isolate_sender_and_listener.dart';
-
-import 'package:dart_test_field/thread_pool_data_types.dart';
 import 'package:test/test.dart';
+import 'package:thread_pool/isolate_sender_and_listener.dart';
+import 'package:thread_pool/thread_pool_data_types.dart';
 
 void main() {
   group("IsolateSenderAndListener.worker()", () {

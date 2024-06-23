@@ -7,10 +7,11 @@ import 'package:thread_pool/thread_pool_data_types.dart';
 void main() {
   group("IsolateSenderAndListener.worker()", () {
     test(
-        'IsolateSenderAndListener.workerHandleRequest() called with bad data: Response data with error state returned',
+        'IsolateSenderAndListener.workerHandleRequest() called with bad data: Response data with error state and message returned',
         () {
       var res = IsolateSenderAndListener.workerHandleRequest(15);
       expect(res.stateType, StateType.error);
+      expect(res.errorMessage.isEmpty, false);
     });
 
     test(

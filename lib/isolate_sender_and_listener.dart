@@ -56,6 +56,10 @@ class IsolateSenderAndListener {
       if (value is! ResponseData) {
         throw Exception("Bad response data was returned.");
       }
+      if (value.stateType == StateType.error) {
+        throw Exception(
+            "Error was thrown in isolate $isolateIndex with request id ${req.id}. Error: ${res.errorMessage}");
+      }
       res = value;
     }
 
@@ -94,7 +98,11 @@ class IsolateSenderAndListener {
       return ResponseData(data: data.callback(), id: data.id);
     } else {
       print("Worker got wrong data type.");
-      return ResponseData(id: -1, data: -1, stateType: StateType.error);
+      return ResponseData(
+          id: -1,
+          data: -1,
+          stateType: StateType.error,
+          errorMessage: "Worker got wrong data type.");
     }
   }
 

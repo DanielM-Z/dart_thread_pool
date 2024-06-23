@@ -26,14 +26,3 @@ class ResponseData {
     return ResponseData(id: -1, data: null);
   }
 }
-
-class IsolateSenderAndListener {
-  SendPort sendPortToIsolate;
-  Stream streamFromIsolate;
-  int isolateIndex;
-  IsolateSenderAndListener({
-    required this.sendPortToIsolate,
-    required this.streamFromIsolate,
-    required this.isolateIndex,
-  });
-}
